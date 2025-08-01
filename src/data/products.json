@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "Basic white T-shirt",
+    "description": "Unisex white cotton T-shirt",
+    "price": 5000,
+    "thumbnail": "https://cdn.shopify.com/s/files/1/1025/3059/products/CLASSIC_WHITE_SHIRT_009_6ebe4c7c-df30-42d9-a330-b8b15acd8d80_2000x2000_crop_center.jpg?v=1658432758",
+    "code": "RB001",
+    "stock": 20,
+    "status": true,
+    "category": "T-shirts"
+  },
+  {
+    "id": 3,
+    "title": "Black Denim Jacket",
+    "description": "Unisex black denim jacket",
+    "price": 6500,
+    "thumbnail": "https://jackofspades.com/cdn/shop/files/JCK1000BlackDenimJacket.jpg?v=1715713281",
+    "code": "JK003",
+    "stock": 20,
+    "status": true,
+    "category": "jackets"
+  },
+  {
+    "id": 5,
+    "title": "Leather Jacket",
+    "description": "Black leather jacket with zipper details",
+    "price": 20000,
+    "thumbnail": "https://hyperli.com/cdn/shop/files/22244006985_248610151.jpg?v=1710432141",
+    "code": "JK004",
+    "stock": 45,
+    "status": true,
+    "category": "jackets"
+  },
+  {
+    "id": 6,
+    "title": "Classic Blue Jeans",
+    "description": "Straight-cut blue denim jeans",
+    "price": 8000,
+    "thumbnail": "https://acdn-us.mitiendanube.com/stores/001/369/862/products/50155m-4-7727ebd5e7d40054fc17148262735262-480-0.jpg",
+    "code": "JE001",
+    "stock": 30,
+    "status": true,
+    "category": "jeans"
+  },
+  {
+    "id": 7,
+    "title": "Basic Black T-shirt",
+    "description": "Unisex black cotton T-shirt",
+    "price": 4800,
+    "thumbnail": "https://chriscross.in/cdn/shop/files/ChrisCrossBlackCottonT-Shirt.jpg?v=1740994605",
+    "code": "RB002",
+    "stock": 25,
+    "status": true,
+    "category": "T-shirts"
+  },
+  {
+    "id": 8,
+    "title": "Grey Wool Beanie",
+    "description": "Warm grey beanie for winter",
+    "price": 3000,
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNC_6oeP59r5xSnjb2lV1PHZFiJWdPDrYeeQ&s",
+    "code": "HW001",
+    "stock": 15,
+    "status": true,
+    "category": "accessories"
+  },
+  {
+    "id": 9,
+    "title": "Beige Slim Trousers",
+    "description": "Slim-fit trousers in beige with pressed front crease",
+    "price": 2500,
+    "thumbnail": "https://adkn.co.uk/cdn/shop/products/Sustainable-Beige-Slim-Leg-Smart-Trousers-Elasticated-High-Waist-ADKN-UK-3.jpg?v=1603998269",
+    "code": "JA002",
+    "stock": 30,
+    "status": true,
+    "category": "Trousers"
+  }
+]
