@@ -3,7 +3,7 @@ const path = require("path")
 
 class CartManager 
 {
-  static path = "./data/carts.json";
+  static path = "src/data/carts.json";
 
   static async getcarts()
   {

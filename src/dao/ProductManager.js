@@ -2,7 +2,7 @@ const fs = require("fs")
 
 class ProductManager
 {
-    static path = "./data/products.json"
+    static path = "src/data/products.json"
 
     static async getProducts()
     {

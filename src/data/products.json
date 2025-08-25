@@ -33,28 +33,6 @@
     "category": "jackets"
   },
   {
-    "id": 6,
-    "title": "Classic Blue Jeans",
-    "description": "Straight-cut blue denim jeans",
-    "price": 8000,
-    "thumbnail": "https://acdn-us.mitiendanube.com/stores/001/369/862/products/50155m-4-7727ebd5e7d40054fc17148262735262-480-0.jpg",
-    "code": "JE001",
-    "stock": 30,
-    "status": true,
-    "category": "jeans"
-  },
-  {
-    "id": 7,
-    "title": "Basic Black T-shirt",
-    "description": "Unisex black cotton T-shirt",
-    "price": 4800,
-    "thumbnail": "https://chriscross.in/cdn/shop/files/ChrisCrossBlackCottonT-Shirt.jpg?v=1740994605",
-    "code": "RB002",
-    "stock": 25,
-    "status": true,
-    "category": "T-shirts"
-  },
-  {
     "id": 8,
     "title": "Grey Wool Beanie",
     "description": "Warm grey beanie for winter",
@@ -75,5 +53,16 @@
     "stock": 30,
     "status": true,
     "category": "Trousers"
+  },
+  {
+    "id": 10,
+    "title": "Jeans Slim Fit",
+    "description": "Men's slim-fit denim jeans, dark blue.",
+    "price": "12500",
+    "thumbnail": "https://images.unsplash.com/photo-1541099645168-967980306141?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "code": "RB002",
+    "stock": "20",
+    "status": true,
+    "category": "Jeans"
   }
 ]

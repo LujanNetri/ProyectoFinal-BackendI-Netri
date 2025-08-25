@@ -1,0 +1,12 @@
+<head>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<h1 class="title">Product List</h1>
+<ul class="productList"> 
+    {{#each products}}
+    <li class="productItem">
+        <strong>{{this.title}}</strong> - ${{this.price}}
+    </li>
+    {{/each}}
+</ul>

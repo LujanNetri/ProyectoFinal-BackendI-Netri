@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" href="/css/realTimeProducts.css">
+</head>
+
+<div class="container">
+    <h2>Real-time products</h2>
+    <hr>
+
+    <ul id="products">
+        {{#each products}}
+            <li>{{title}} - ${{price}}</li>
+        {{/each}}
+    </ul>
+
+    <form id="productForm">
+        <input type="text" name="title" placeholder="Product name" required>
+        <input type="number" name="price" placeholder="Price" required>
+        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="code" placeholder="Code" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <input type="text" name="thumbnail" placeholder="Thumbnail" required>
+        <input type="text" name="category" placeholder="Category" required>
+        <button type="submit">Add product</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/rtp.js"></script>
