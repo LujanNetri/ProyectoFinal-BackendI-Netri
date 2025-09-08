@@ -1,0 +1,17 @@
+<h1>Cart</h1>
+
+<label for="cartSelector">Seleccionar carrito:</label>
+<select id="cartSelector"></select>
+
+
+<ul>
+  {{#each products}}
+    <li>
+      <strong>{{this.product.title}}</strong> - 
+      Quantity: {{this.quantity}} - 
+      Price: ${{this.product.price}}
+    </li>
+  {{/each}}
+</ul>
+
+<script src="/js/cart.js"></script>

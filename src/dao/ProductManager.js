@@ -1,44 +1,47 @@
-const fs = require("fs")
+import Product from "./models/product.model.js"
 
 class ProductManager
 {
-    static path = "src/data/products.json"
+    async getProducts({ page = 1, limit = 10, sort, category, status } = {}) {
+    try {
+        const query = {}
 
-    static async getProducts()
-    {
-        if(fs.existsSync(this.path))
-        {
-            const data = await fs.promises.readFile(this.path,"utf-8")
-            return JSON.parse(data)
-        } else 
-        {
-            return []
+        if (category) query.category = category
+        if (status === "true") query.status = true
+        if (status === "false") query.status = false
+
+        const options = { page, limit, lean: true }
+
+        if (sort) {
+        options.sort = { price: sort === "asc" ? 1 : -1 }
         }
+
+        return await Product.paginate(query, options)
+    } catch (err) {
+        console.error("Error en getProducts:", err)
+        return [];
+    }
     }
 
-    static async getProductById(id)
+    async getAllProducts()
     {
-        let products = await this.getProducts()
-
-        let product = products.find(p => p.id == id)
-
-        if(!product)
-            return `No existe un producto con id ${id}`
-
-        return product
+        return await Product.find().lean()
     }
 
-    static async addProduct({title,description,price,thumbnail,code,stock,category,status})
+    async getProductById(id)
     {
-        const products = await this.getProducts()
+        return await Product.findById(id).lean()
+    }
 
+    async addProduct({title,description,price,thumbnail,code,stock,category,status})
+    {
         if(!title || !description || !price || !thumbnail || !code || !stock || !category || !status)
         {
             console.log("Faltan campos obligatorios")
             return
         }
 
-        const exist = products.find(p => p.code === code)
+        const exist = await Product.findOne({ code })
 
         if(exist)
         {
@@ -46,13 +49,8 @@ class ProductManager
             return 
         }
 
-        let id = 1
-        if(products.length > 0)
-            id = Math.max(...products.map(p=>p.id)) + 1
-
-        const newProduct = 
+        const newProduct = await Product.create(
         {
-            id,
             title,
             description,
             price,
@@ -61,46 +59,20 @@ class ProductManager
             stock,
             status,
             category
-        }
-
-        products.push(newProduct)
-
-        await fs.promises.writeFile(this.path,JSON.stringify(products,null,2),"utf-8")
+        })
 
         return newProduct
     }
 
-    static async updateProduct(id,data)
-    {
-        let products = await this.getProducts()
-        let pos = products.findIndex((p) => p.id == id)
-
-        if(pos === -1)
-            return `No existe un producto con id: ${id}`
-        
-        if("id" in data)
-            return `No es posible modificar el ID del producto`
-
-        delete data.id
-        products[pos] = {...products[pos],...data}
-
-        await fs.promises.writeFile(this.path,JSON.stringify(products,null,2),"utf-8")
-
-        return products[pos]
+    async updateProduct(id,data)
+    {       
+        return await Product.findByIdAndUpdate(id,data,{new: true})
     }
 
-    static async deleteProducts(id)
+    async deleteProducts(id)
     {
-        let products = await this.getProducts()
-        let update = products.filter((p) => p.id != id)        
-
-            if (products.length === update.length)
-              return `No existe un producto con id ${id}`;
-
-        await fs.promises.writeFile(this.path,JSON.stringify(update,null,2),"utf-8")
-
-        return `Producto con ${id} eliminado`
+        return await Product.findByIdAndDelete(id)
     }
 }
  
-module.exports = ProductManager
+export default new ProductManager()

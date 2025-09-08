@@ -1,12 +1,37 @@
 <head>
-    <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="/css/home.css">
 </head>
 
 <h1 class="title">Product List</h1>
-<ul class="productList"> 
+    <ul class="productList">
     {{#each products}}
-    <li class="productItem">
+        <li class="productItem">
         <strong>{{this.title}}</strong> - ${{this.price}}
-    </li>
+        
+        <div class="productActions">
+            <a href="/products/{{this._id}}">
+            <button>View details</button>
+            </a>
+            <button onclick="addProductToCart('{{this._id}}')">Add to Cart</button>
+            <a class="cartLink">
+            <button>View cart</button>
+            </a>
+        </div>
+        </li>
     {{/each}}
-</ul>
+    </ul>
+
+
+<div class="pagination">
+  {{#if hasPrevPage}}
+    <a href="{{prevLink}}">Previous</a>
+  {{/if}}
+
+  <span>Page {{currentPage}} of {{totalPages}}</span>
+
+  {{#if hasNextPage}}
+    <a href="{{nextLink}}">Next</a>
+  {{/if}}
+</div>
+
+<script src="/js/cart.js"></script>
