@@ -1,4 +1,5 @@
 import Cart from "./models/cart.model.js"
+import Product from "./models/product.model.js"
 
 class CartManager 
 {
@@ -23,12 +24,17 @@ class CartManager
     if(!cart)
         return `No existe el carrito con id: ${cartId}`
 
+    const productExists = await Product.findById(productId)
+
+    if(!productExists)
+      return `No existe el producto con id: ${productId}`
+    
     const prodInCart = cart.products.find( p => p.product.toString() === productId)
 
     if(prodInCart)
-        prodInCart.quantity += 1
+        prodInCart.quantity += quantity
     else 
-        cart.products.push({product: productId, quantity: 1})
+        cart.products.push({product: productId, quantity})
 
     await cart.save()
     return cart

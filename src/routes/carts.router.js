@@ -42,17 +42,10 @@ router.post("/:cid/products/:pid", async (req, res) => {
     const { cid, pid } = req.params
     const cart = await CartManager.addProductToCart(cid, pid)
 
-    if (!cart) return res.status(404).send({ error: "Carrito no encontrado" })
-    const productIndex = cart.products.findIndex(p => p.product.toString() === pid)
+    if (typeof cart === "string")
+      return res.status(404).json({ error: result })
 
-    if (productIndex !== -1) {
-      cart.products[productIndex].quantity += 1
-    } else {
-      cart.products.push({ product: pid, quantity: 1 })
-    }
-
-    await cart.save()
-    res.send(cart)
+    res.json(cart)
   } catch (err) {
     console.error(err)
     res.status(500).send({ error: "Error al agregar producto al carrito" })
